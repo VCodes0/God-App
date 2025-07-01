@@ -1,3 +1,6 @@
+import 'package:aarati_app/view/API%20Screens/aarti_screen.dart';
+import 'package:aarati_app/view/API%20Screens/downloads.dart';
+import 'package:aarati_app/view/API%20Screens/wallpaper.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomBar extends StatefulWidget {
@@ -16,7 +19,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
     {'icon': Icons.download, 'label': 'Downloads'},
   ];
 
-  final List<Widget> screens = [];
+  final List<Widget> screens = [Aarti(), Wallpaper(), Downloads()];
 
   @override
   Widget build(BuildContext context) {
@@ -26,60 +29,66 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
           IndexedStack(index: selectedIndex, children: screens),
           Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(40),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: List.generate(items.length, (index) {
-                  final item = items[index];
-                  final isSelected = index == selectedIndex;
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 15),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 7),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: List.generate(items.length, (index) {
+                    final item = items[index];
+                    final isSelected = index == selectedIndex;
 
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedIndex = index;
-                      });
-                    },
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 10,
-                      ),
-                      decoration: BoxDecoration(
-                        gradient: isSelected
-                            ? const LinearGradient(
-                                colors: [Color(0xFFFF9800), Color(0xFFFFC107)],
-                              )
-                            : null,
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(
-                            item['icon'],
-                            color: isSelected ? Colors.white : Colors.grey,
-                          ),
-                          if (isSelected)
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                item['label'],
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      },
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 300),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 10,
+                        ),
+                        decoration: BoxDecoration(
+                          gradient: isSelected
+                              ? const LinearGradient(
+                                  colors: [
+                                    Color(0xFFFF9800),
+                                    Color(0xFFFFC107),
+                                  ],
+                                )
+                              : null,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              item['icon'],
+                              color: isSelected ? Colors.white : Colors.grey,
+                            ),
+                            if (isSelected)
+                              Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: Text(
+                                  item['label'],
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
-                            ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                }),
+                    );
+                  }),
+                ),
               ),
             ),
           ),
