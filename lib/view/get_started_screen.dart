@@ -1,5 +1,6 @@
 import 'package:aarati_app/view/home_screen.dart';
 import 'package:aarati_app/view/rateus_screen.dart';
+import 'package:aarati_app/view/share_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -50,7 +51,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
 
             // Get Started Card
             Positioned(
-              top: mq.height * 0.1,
+              top: mq.height * 0.12,
               left: mq.width * 0.08,
               child: SizedBox(
                 width: mq.width * 0.35,
@@ -71,7 +72,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 width: mq.width * 0.35,
                 height: mq.height * 0.18,
                 child: SelectionCard(
-                  onTap: () {},
+                  onTap: () => Get.to(ShareScreen()),
                   cardIcon: Icons.privacy_tip,
                   cardTitle: "Privacy",
                 ),
@@ -86,7 +87,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 width: mq.width * 0.35,
                 height: mq.height * 0.18,
                 child: SelectionCard(
-                  onTap: () {},
+                  onTap: () => Get.to(ShareScreen()),
                   cardIcon: Icons.share,
                   cardTitle: "Share",
                 ),
