@@ -5,6 +5,9 @@ class Aarti extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text("Aarti")));
+    return Scaffold(
+      appBar: AppBar(title: Text("Aarti")),
+      body: Column(children: []),
+    );
   }
 }
