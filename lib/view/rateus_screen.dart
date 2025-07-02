@@ -118,7 +118,7 @@ class _RateUsScreenState extends State<RateUsScreen> {
 
                       GestureDetector(
                         onTap: () => Get.back(),
-                        child: CustomNextButton(text: "Go Back"),
+                        child: CustomNxtButton(text: "Go Back"),
                       ),
                     ],
                   ),

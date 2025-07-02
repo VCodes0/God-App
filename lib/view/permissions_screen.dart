@@ -89,7 +89,7 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
               Center(
                 child: InkWell(
                   onTap: () => Get.to(GetStartedScreen()),
-                  child: CustomNextButton(text: "Continue"),
+                  child: CustomNxtButton(text: "Continue"),
                 ),
               ),
 

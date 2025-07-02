@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class CustomNextButton extends StatelessWidget {
+class CustomNxtButton extends StatelessWidget {
   String text;
-  CustomNextButton({super.key, required this.text});
+  CustomNxtButton({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {

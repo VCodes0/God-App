@@ -97,7 +97,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
             SizedBox(height: verticalSpacing * 2),
             GestureDetector(
               onTap: () => Get.to(const OnboardFirst()),
-              child: CustomNextButton(text: 'Next'),
+              child: CustomNxtButton(text: 'Next'),
             ),
             SizedBox(height: verticalSpacing * 2),
           ],

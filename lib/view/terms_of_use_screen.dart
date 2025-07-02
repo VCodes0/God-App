@@ -103,7 +103,7 @@ class _TermsOfUseScreenState extends State<TermsOfUseScreen> {
             Center(
               child: GestureDetector(
                 onTap: () => Get.to(PermissionsScreen()),
-                child: CustomNextButton(text: 'Agree'),
+                child: CustomNxtButton(text: 'Agree'),
               ),
             ),
 
