@@ -93,7 +93,7 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
                 ),
               ),
 
-              SizedBox(height: screen.height * 0.17),
+              SizedBox(height: screen.height * 0.1),
 
               /// AD SPACE
               Container(
