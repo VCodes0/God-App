@@ -5,7 +5,7 @@ import 'package:aarati_app/model/recently_played_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
-class RecentlyPlayedController extends ChangeNotifier {
+class TrendingAartisController extends ChangeNotifier {
   List<RecentlyPlayed> _recentlyPlayed = [];
   List<RecentlyPlayed> get recentlyPlayed => _recentlyPlayed;
 
@@ -14,9 +14,9 @@ class RecentlyPlayedController extends ChangeNotifier {
 
   final Dio dio = Dio();
   final String url =
-      "https://appy.trycatchtech.com/v3/all_god/trending_aarti?category_id=1,3";
+      "https://appy.trycatchtech.com/v3/all_god/trending_aarti?category_id=1,2";
 
-  Future<void> getRecentlyPlayedData() async {
+  Future<void> getTrendingAartisData() async {
     _isLoading = true;
     notifyListeners();
 
