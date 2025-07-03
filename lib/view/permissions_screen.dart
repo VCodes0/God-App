@@ -97,7 +97,7 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
 
               /// AD SPACE
               Container(
-                height: screen.height * 0.18,
+                height: screen.height * 0.15,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.grey[400],
