@@ -1,0 +1,56 @@
+name: god_app
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # for iOS style icons.
+  cupertino_icons: ^1.0.8
+
+  # For Adding Google Fonts in our App
+  google_fonts: ^6.2.1
+
+  # For Calling APIs
+  dio: ^5.8.0+1
+
+  # For Simple State-Management
+  provider: ^6.1.5
+
+  # For Simple State-Management
+  get: ^4.7.2
+  shared_preferences: ^2.5.3
+  cached_network_image: ^3.4.1
+  path_provider: ^2.1.5
+  share_plus: ^11.0.0
+  flutter_lints: ^6.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_launcher_icons: "^0.14.4"
+
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/applogo.png"
+  min_sdk_android: 21
+  remove_alpha_ios: true
+
+  flutter_lints: ^5.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  # To add assets to our application
+  assets:
+    - assets/
