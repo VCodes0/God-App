@@ -1,4 +1,5 @@
 name: god_app
+
 description: "A new Flutter project."
 
 publish_to: 'none'
@@ -12,33 +13,47 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # for iOS style icons.
+  # iOS-style icons for the app
   cupertino_icons: ^1.0.8
 
-  # For Adding Google Fonts in our App
+  # Google Fonts integration for custom typography
   google_fonts: ^6.2.1
 
-  # For Calling APIs
+  # Dio is a powerful HTTP client for API calls
   dio: ^5.8.0+1
 
-  # For Simple State-Management
+  # Provider for simple and scalable state management
   provider: ^6.1.5
 
-  # For Simple State-Management
+  # GetX for reactive state management and routing
   get: ^4.7.2
+
+  # Store key-value data locally
   shared_preferences: ^2.5.3
+
+  # Load and cache images from the internet efficiently
   cached_network_image: ^3.4.1
+
+  # Access to commonly used locations on the filesystem
   path_provider: ^2.1.5
+
+  # Share content with other apps (text, images, etc.)
   share_plus: ^11.0.0
+
+  # Recommended Flutter lints for better code quality
   flutter_lints: ^6.0.0
+
+  # Play audio files (online and offline)
   audioplayers: ^6.5.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # Generate app launcher icons for Android and iOS
   flutter_launcher_icons: "^0.14.4"
 
+# Configuration for flutter_launcher_icons package
 flutter_launcher_icons:
   android: "ic_launcher"
   ios: true
@@ -46,12 +61,9 @@ flutter_launcher_icons:
   min_sdk_android: 21
   remove_alpha_ios: true
 
-  flutter_lints: ^5.0.0
-
 flutter:
-
   uses-material-design: true
 
-  # To add assets to our application
+  # Declare assets to be bundled with the app
   assets:
-    - assets/
+    - assets/  # Directory containing images, icons, etc.
