@@ -67,14 +67,10 @@ class _AartiState extends State<AartiScreen> {
                   child: Column(
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           const Text(
                             "Recently Played",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          const Text(
-                            "View all",
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],
@@ -173,14 +169,10 @@ class _AartiState extends State<AartiScreen> {
                   child: Column(
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           const Text(
                             "Trending Aarti’s",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          const Text(
-                            "View all",
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],
@@ -279,14 +271,10 @@ class _AartiState extends State<AartiScreen> {
                   child: Column(
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           const Text(
                             "Festival",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          const Text(
-                            "View all",
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],

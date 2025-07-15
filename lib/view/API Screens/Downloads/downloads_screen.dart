@@ -1,12 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../../main.dart';
 import '../../../providers/all_god_wallpaper_provider.dart';
 import '../../../providers/recently_played_provider.dart';
+import '../../Play Aarti/aarti_play_screen.dart';
 
 class DownloadsScreen extends StatefulWidget {
   const DownloadsScreen({super.key});
@@ -28,48 +30,45 @@ class _DownloadsScreenState extends State<DownloadsScreen>
       context,
       listen: false,
     ).getAllGodWallPaperatsData();
-
     Provider.of<RecentlyPlayedProvider>(
       context,
       listen: false,
     ).getRecentlyPlayedData();
   }
 
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
-
   Future<void> shareAarti(String title) async {
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
+
     final result = await Share.share(
       'Listen to this Aarti: $title',
       subject: 'Share Aarti',
     );
 
     if (result.status == ShareResultStatus.success) {
-      ScaffoldMessenger.of(context).showSnackBar(
+      scaffoldMessenger.showSnackBar(
         const SnackBar(content: Text("Aarti shared successfully")),
       );
     } else if (result.status == ShareResultStatus.dismissed) {
-      ScaffoldMessenger.of(context).showSnackBar(
+      scaffoldMessenger.showSnackBar(
         const SnackBar(content: Text("Aarti sharing cancelled")),
       );
     }
   }
 
   Future<void> shareWallpaper(String imageUrl) async {
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
+
     final result = await Share.share(
       'Check out this wallpaper: $imageUrl',
       subject: 'Share Wallpaper',
     );
 
     if (result.status == ShareResultStatus.success) {
-      ScaffoldMessenger.of(context).showSnackBar(
+      scaffoldMessenger.showSnackBar(
         const SnackBar(content: Text("Wallpaper shared successfully")),
       );
     } else if (result.status == ShareResultStatus.dismissed) {
-      ScaffoldMessenger.of(context).showSnackBar(
+      scaffoldMessenger.showSnackBar(
         const SnackBar(content: Text("Wallpaper sharing cancelled")),
       );
     }
@@ -113,11 +112,16 @@ class _DownloadsScreenState extends State<DownloadsScreen>
             itemBuilder: (context, index) {
               final item = recentlyPlayed[index];
               return InkWell(
-                onTap: () {
-                  // Add navigation or playback logic here
-                },
+                onTap: () => Get.to(
+                  () => AartiPlayScreen(
+                    imageUrl: '${item.mainImage}',
+                    audioUrl: '${item.audio}',
+                  ),
+                ),
                 child: ListTile(
-                  leading: const CircleAvatar(child: Icon(Icons.music_note)),
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage("${item.withoutBgImage}"),
+                  ),
                   title: Text(item.title ?? 'Untitled Aarti'),
                   subtitle: Text(item.title ?? 'Unknown'),
                   trailing: IconButton(
@@ -158,6 +162,8 @@ class _DownloadsScreenState extends State<DownloadsScreen>
               itemBuilder: (context, index) {
                 final item = wallpapers[index];
 
+                final imageUrl = item.images ?? '';
+
                 return Stack(
                   children: [
                     Container(
@@ -167,19 +173,19 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
-                        child: item.images != null && item.images!.isNotEmpty
+                        child: imageUrl.isNotEmpty
                             ? CachedNetworkImage(
-                          imageUrl: item.images!,
-                          fit: BoxFit.cover,
-                          placeholder: (context, url) => const Center(
-                            child: CircularProgressIndicator(),
-                          ),
-                          errorWidget: (context, url, error) =>
-                          const Icon(Icons.broken_image, size: 50),
-                        )
+                                imageUrl: imageUrl,
+                                fit: BoxFit.cover,
+                                placeholder: (context, url) => const Center(
+                                  child: CircularProgressIndicator(),
+                                ),
+                                errorWidget: (context, url, error) =>
+                                    const Icon(Icons.broken_image, size: 50),
+                              )
                             : const Center(
-                          child: Icon(Icons.broken_image, size: 50),
-                        ),
+                                child: Icon(Icons.broken_image, size: 50),
+                              ),
                       ),
                     ),
                     Positioned(
@@ -188,9 +194,8 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                       child: IconButton(
                         icon: const Icon(Icons.share, color: Colors.white),
                         onPressed: () {
-                          if (item.images != null &&
-                              item.images!.isNotEmpty) {
-                            shareWallpaper(item.images!);
+                          if (imageUrl.isNotEmpty) {
+                            shareWallpaper(imageUrl);
                           }
                         },
                       ),
