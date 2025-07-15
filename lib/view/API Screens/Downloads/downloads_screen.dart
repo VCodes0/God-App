@@ -76,22 +76,25 @@ class _DownloadsScreenState extends State<DownloadsScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Downloads"),
-        bottom: TabBar(
-          controller: _tabController,
-          indicatorColor: CupertinoColors.activeOrange,
-          labelColor: CupertinoColors.activeOrange,
-          tabs: const [
-            Tab(child: Text("Aarti")),
-            Tab(child: Text("Wallpapers")),
-          ],
+    return GestureDetector(
+      onTap: FocusScope.of(context).unfocus,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Downloads"),
+          bottom: TabBar(
+            controller: _tabController,
+            indicatorColor: CupertinoColors.activeOrange,
+            labelColor: CupertinoColors.activeOrange,
+            tabs: const [
+              Tab(child: Text("Aarti")),
+              Tab(child: Text("Wallpapers")),
+            ],
+          ),
         ),
-      ),
-      body: TabBarView(
-        controller: _tabController,
-        children: [_showAarti(), _showDownloadsWallPaper()],
+        body: TabBarView(
+          controller: _tabController,
+          children: [_showAarti(), _showDownloadsWallPaper()],
+        ),
       ),
     );
   }
