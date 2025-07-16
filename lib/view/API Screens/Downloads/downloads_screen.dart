@@ -118,7 +118,8 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                 onTap: () => Get.to(
                   () => AartiPlayScreen(
                     imageUrl: '${item.mainImage}',
-                    audioUrl: 'https://appy.trycatchtech.com/uploads/all_god/Jai-Ganesh-Jai-Ganesh-Deva.mp3',
+                    audioUrl:
+                        'https://appy.trycatchtech.com/uploads/all_god/Jai-Ganesh-Jai-Ganesh-Deva.mp3',
                   ),
                 ),
                 child: ListTile(

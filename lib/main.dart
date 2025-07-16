@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:god_app/providers/all_god_wallpaper_provider.dart';
 import 'package:god_app/providers/recently_used_provider.dart';
-import 'package:god_app/view/splash/splash_screen.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'providers/festival_provider.dart';
@@ -11,6 +11,7 @@ import 'providers/god_category_provider.dart';
 import 'providers/popular_wallpaper_provider.dart';
 import 'providers/recently_played_provider.dart';
 import 'providers/trending_aarti_provider.dart';
+import 'view/splash/splash_screen.dart';
 
 late Size mq;
 void main() {

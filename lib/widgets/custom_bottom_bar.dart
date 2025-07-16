@@ -14,9 +14,21 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   int selectedIndex = 0;
 
   final List<Map<String, dynamic>> items = [
-    {'icon': Icons.front_hand, 'label': 'Aarti'},
-    {'icon': Icons.wallpaper, 'label': 'Wallpaper'},
-    {'icon': Icons.download, 'label': 'Downloads'},
+    {
+      'icon': 'assets/active_hand.png',
+      'selectedIcon': 'assets/inactive_hand.png',
+      'label': 'Aarti'
+    },
+    {
+      'icon': 'assets/active_wallpaper.png',
+      'selectedIcon': 'assets/inactive_wallpaper.png',
+      'label': 'Wallpaper'
+    },
+    {
+      'icon': 'assets/active_download.png',
+      'selectedIcon': 'assets/inactive_download.png',
+      'label': 'Downloads'
+    },
   ];
 
   final List<Widget> screens = [
@@ -62,31 +74,32 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                         decoration: BoxDecoration(
                           gradient: isSelected
                               ? const LinearGradient(
-                                  colors: [
-                                    Color(0xFFFF9800),
-                                    Color(0xFFFFC107),
-                                  ],
-                                )
+                            colors: [
+                              Color(0xFFFF9800),
+                              Color(0xFFFFC107),
+                            ],
+                          )
                               : null,
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: Row(
                           children: [
-                            Icon(
-                              item['icon'],
+                            Image.asset(
+                              isSelected ? item['selectedIcon'] : item['icon'],
+                              width: 24,
+                              height: 24,
                               color: isSelected ? Colors.white : Colors.grey,
                             ),
-                            if (isSelected)
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child: Text(
-                                  item['label'],
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
+                            const SizedBox(width: 6),
+                            Text(
+                              item['label'],
+                              style: TextStyle(
+                                color: isSelected ? Colors.white : Colors.grey,
+                                fontWeight: isSelected
+                                    ? FontWeight.bold
+                                    : FontWeight.normal,
                               ),
+                            ),
                           ],
                         ),
                       ),
